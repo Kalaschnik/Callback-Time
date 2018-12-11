@@ -8,7 +8,7 @@ function getPosts() {
     setTimeout(() => {
 
         let output = '';
-        posts.forEach((post, i) => {
+        posts.forEach(post => {
             output += `<li>${post.title}</li>`;
         });
         console.log(output);
@@ -18,18 +18,13 @@ function getPosts() {
 
 }
 
-const createPost = (post) => {
+const createPost = (post, callback) => {
     setTimeout(() => {
-        posts.push(post)
+        posts.push(post);
+        callback();
     }, 2000)
 };
 
 
-getPosts();
+createPost({title: "Post Three", body: "This is post 3"}, getPosts);
 
-createPost({title: "Post Three", body: "This is post 3"});
-
-/*
-    NOTE if the timeout for createPost is higher then for getPosts, then you wont see the Post create in createPost
-
-   */
