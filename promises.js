@@ -39,3 +39,15 @@ const createPost = (post) => {
 createPost({title: "Third Post", body: "This is now a Promise..."})
     .then(getPosts) // if error = false
     .catch(err => console.log(err)); // if error = true
+
+// Promise.all
+
+const promise1 = Promise.resolve("Hello World");
+const promise2 = 10;
+const promise3 = new Promise(res => setTimeout(res, 2000, "Goodbye"));
+// fetch returns a promise, but you need to map it
+const promise4 = fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json());
+
+Promise.all([promise1, promise2, promise3, promise4])
+    .then(values => console.log(values));
