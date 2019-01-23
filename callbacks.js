@@ -8,11 +8,7 @@ function getPosts() {
     setTimeout(() => {
 
         let output = '';
-        posts.forEach(post => {
-            output += `<li>${post.title}</li>`;
-        });
-        console.log(output);
-        document.body.innerHTML = output;
+    posts.forEach((post) => {
 
     }, 1000);
 
