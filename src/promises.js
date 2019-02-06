@@ -35,6 +35,15 @@ createPost({ title: 'Third Post', body: 'This is now a Promise...' })
   .then(getPosts)
   .catch(err => console.log(err)); // if error = true
 
+// other example
+const promise = new Promise((res, rej) => {
+  setTimeout(() => {
+    res('I’ll execute after the timeout!');
+  }, 3000);
+});
+// "call it"
+promise.then(text => console.log(text));
+
 
 // Promise.all
 
